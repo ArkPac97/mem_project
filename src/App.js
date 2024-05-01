@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+// src/App.js
+import React from 'react';
 import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NavBar from './components/NavBar';
+import { Home } from "./views/Home";
+import { HotMems } from "./views/HotMems";
+import { RegularMems } from "./views/RegularMems";
+import { MyBestMems } from "./views/MyBestMems";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/hot" element={<HotMems />} />
+          <Route path="/regular" element={<RegularMems />} />
+          <Route path="/mybest" element={<MyBestMems />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
