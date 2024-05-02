@@ -105,6 +105,19 @@
   margin-bottom: 10px;
 }
 
+.favorite__btn {
+  background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 4%;
+    top: 12%;
+}
+
+.favorite__btn-icon {
+  width: 7rem;
+  height: 7rem;
+}
+
 .vote__btns {
   display: flex;
   justify-content: space-between;

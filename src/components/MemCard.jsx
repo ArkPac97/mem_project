@@ -25,6 +25,9 @@ function MemCard({ title }) {
       <div className='mem__card-mem'>
         {/* mem */}
       </div>
+      <button className='favorite__btn'>
+        <img className='favorite__btn-icon' src="./favorite.png" alt="Favorite button" />
+      </button>
       <div className='vote__btns'>
         <button className='vote__btns-up vote__btn' onClick={triggerBounceUp}>
           Licznik up
