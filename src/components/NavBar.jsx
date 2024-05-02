@@ -8,7 +8,7 @@ function NavBar() {
   return (
     <nav className='nav__bar'>
       <div className='nav__bar-home' onClick={() => navigate("/")}>
-        <img className='nav__bar-img' src="./cat_mem_icon.jpg" alt="Home Icon" />
+        <img className='nav__bar-img' src="./header_icon.png" alt="Home Icon" />
         <h2 className='nav__bar-header'>mem serwis</h2>
       </div>
       <div className='nav__bar-navigation_btns'>

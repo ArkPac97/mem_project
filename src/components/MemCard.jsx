@@ -8,6 +8,7 @@ library.add(faThumbsUp, faThumbsDown);
 function MemCard({ title }) {
   const [bounceUp, setBounceUp] = useState(false);
   const [bounceDown, setBounceDown] = useState(false);
+  const [favoriteClicked, setFavoriteClicked] = useState(false);
 
   const triggerBounceUp = () => {
     setBounceUp(true);
@@ -19,14 +20,19 @@ function MemCard({ title }) {
     setTimeout(() => setBounceDown(false), 1000);
   };
 
+  const toggleFavorite = () => {
+    setFavoriteClicked(true);
+    setTimeout(() => setFavoriteClicked(false), 100);
+  };
+
   return (
     <div className='mem__card'>
       <h1 className='mem__card-title'>{title}</h1>
       <div className='mem__card-mem'>
         {/* mem */}
       </div>
-      <button className='favorite__btn'>
-        <img className='favorite__btn-icon' src="./favorite.png" alt="Favorite button" />
+      <button className='favorite__btn' onClick={toggleFavorite}>
+        <img className={`favorite__btn-icon ${favoriteClicked ? 'scale-down' : ''}`} src="./favorite.png" alt="Favorite button" />
       </button>
       <div className='vote__btns'>
         <button className='vote__btns-up vote__btn' onClick={triggerBounceUp}>
