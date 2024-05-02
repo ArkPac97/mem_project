@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+
+:root {
+  --color-home-btn: rgb(239, 252, 123);
+  --color-hot-btn: rgb(244, 91, 91);
+  --color-regular-btn: rgb(100, 127, 249);
+  --color-mybest-btn: rgb(205, 123, 252);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Slackey', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* nav element styling */
+.nav__bar {
+  width: 96vw;
+  margin: 0 auto;
+  margin-top: 2rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav__bar-home {
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav__bar-img {
+  width: 15%;
 }
+
+.nav__bar-header {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.nav__bar-navigation_btns {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav__bar-navigation_btn {
+  width: 9rem;
+  height: 3rem;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  cursor: pointer;
+  clip-path: polygon(0% 0%, 5% 100%, 87% 88%, 99% 90%, 94% 4%);
+  transition: all .5s;
+}
+
+.nav__bar-navigation_btn:hover {
+  clip-path: polygon(12% 2%, 1% 87%, 30% 70%, 88% 90%, 94% 4%);
+}
+
+.home__btn {
+  background-color: var(--color-home-btn);
+}
+
+.hot__btn {
+  background-color: var(--color-hot-btn);
+}
+
+.regular__btn {
+  background-color: var(--color-regular-btn);
+}
+
+.mybest__btn {
+  background-color: var(--color-mybest-btn);
+}
+/* nav element styling */
