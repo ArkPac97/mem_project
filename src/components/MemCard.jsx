@@ -1,16 +1,39 @@
-// src/components/MemeCard.jsx
-import React from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faThumbsUp, faThumbsDown);
 
 function MemCard({ title }) {
+  const [bounceUp, setBounceUp] = useState(false);
+  const [bounceDown, setBounceDown] = useState(false);
+
+  const triggerBounceUp = () => {
+    setBounceUp(true);
+    setTimeout(() => setBounceUp(false), 1000);
+  };
+
+  const triggerBounceDown = () => {
+    setBounceDown(true);
+    setTimeout(() => setBounceDown(false), 1000);
+  };
+
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>{title}</h1>
-      <div style={{ width: '860px', height: '360px', backgroundColor: '#e0e0e0', marginBottom: '10px' }}>
-        {/* Miejsce na obrazek mema */}
+    <div className='mem__card'>
+      <h1 className='mem__card-title'>{title}</h1>
+      <div className='mem__card-mem'>
+        {/* mem */}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <button style={{ width: '430px', height: '40px' }}>Licznik up</button>
-        <button style={{ width: '430px', height: '40px' }}>Licznik down</button>
+      <div className='vote__btns'>
+        <button className='vote__btns-up vote__btn' onClick={triggerBounceUp}>
+          Licznik up
+          <FontAwesomeIcon icon="fa-solid fa-thumbs-up" className={bounceUp ? 'bounce' : ''} />
+        </button>
+        <button className='vote__btns-down vote__btn' onClick={triggerBounceDown}>
+          Licznik down
+          <FontAwesomeIcon icon="fa-solid fa-thumbs-down" className={bounceDown ? 'bounce' : ''} />
+        </button>
       </div>
     </div>
   );
