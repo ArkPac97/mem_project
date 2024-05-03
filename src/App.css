@@ -99,18 +99,47 @@
 }
 
 .mem__card-mem {
-  width: 85%; 
-  height: 85%; 
-  background-color: #e0e0e0;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+  width: 70%;
+  margin: 1rem 0;
+  background-color: #ededed;
+  overflow: hidden;
+}
+
+.mem__slide-left {
+  position: absolute;
+  width: 5%;
+  left: 5%;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.mem__slide-right {
+  position: absolute;
+  width: 5%;
+  right: 5%;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.mem__slide-left:hover, .mem__slide-right:hover {
+  transform: scale(0.9);
+}
+
+.mem__card-mem img {
+  max-height: 96%;
+  max-width: 100%;
 }
 
 .favorite__btn {
   background-color: transparent;
     border: none;
     position: absolute;
-    right: 5%;
-    top: 12%;
+    right: 12%;
+    top: 14%;
     cursor: pointer;
 }
 
@@ -151,6 +180,10 @@
 
 .vote__btns-down {
   background-color: var(--color-regular-btn);
+}
+
+.icon-margin {
+  margin-left: 1rem;
 }
 
     /* animation of thumbs */
