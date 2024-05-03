@@ -205,3 +205,23 @@
     /* animation of thumbs */
 
 /* mem section styiling */
+
+/* mybest styiling */
+.mybest__board {
+  width: 96%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.mybest__mem {
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+}
+
+
+/* mybest styiling */
