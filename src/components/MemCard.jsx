@@ -10,8 +10,16 @@ function MemCard() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [memData, setMemData] = useState(() => {
     const localData = localStorage.getItem('memData');
-    return localData ? JSON.parse(localData) : memsData;
+    if (localData) {
+      return JSON.parse(localData);
+    } else {
+      return memsData.map((mem, index) => ({
+        ...mem,
+        id: mem.id || `mem-${index}`
+      }));
+    }
   });
+  
   const [bounceUp, setBounceUp] = useState(false);
   const [bounceDown, setBounceDown] = useState(false);
   const [favoriteClicked, setFavoriteClicked] = useState(false);
@@ -47,6 +55,21 @@ function MemCard() {
   };
 
   const toggleFavorite = () => {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const currentMem = memData[currentIndex];
+  
+    if (!favorites.some(mem => mem.id === currentMem.id)) {
+      const newFavorite = {...currentMem, favorite: 1};
+      favorites.push(newFavorite);
+  
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+  
+      const updatedMemData = memData.map(mem => 
+        mem.id === currentMem.id ? {...mem, favorite: 1} : mem
+      );
+      setMemData(updatedMemData);
+    }
+  
     setFavoriteClicked(true);
     setTimeout(() => setFavoriteClicked(false), 100);
   };
