@@ -60,10 +60,11 @@
   cursor: pointer;
   clip-path: polygon(0% 0%, 5% 100%, 87% 88%, 99% 90%, 94% 4%);
   transition: all .3s;
+  transform: scale(0.9);
 }
 
 .nav__bar-navigation_btn:hover {
-  clip-path: polygon(12% 2%, 1% 87%, 30% 70%, 88% 90%, 94% 4%);
+  clip-path: polygon(12% 2%, 1% 87%, 30% 80%, 88% 90%, 94% 4%);
 }
 
 .home__btn {
@@ -81,6 +82,41 @@
 .mybest__btn {
   background-color: var(--color-mybest-btn);
 }
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.letter {
+  display: inline-block;
+}
+
+[class*="active-"] {
+  animation-name: jump;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.nav__bar-navigation_btn.active {
+  transform: scale(1);
+}
+
+.active-0 { animation-delay: 0.1s; }
+.active-1 { animation-delay: 0.2s; }
+.active-2 { animation-delay: 0.3s; }
+.active-3 { animation-delay: 0.4s; }
+.active-4 { animation-delay: 0.5s; }
+.active-5 { animation-delay: 0.6s; }
+.active-6 { animation-delay: 0.7s; }
+.active-7 { animation-delay: 0.8s; }
+.active-8 { animation-delay: 0.9s; }
+.active-9 { animation-delay: 1.0s; }
 /* nav element styling */
 
 /* mem section styiling */
