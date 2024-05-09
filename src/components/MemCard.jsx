@@ -1,8 +1,11 @@
+// src/components/MemCard.jsx
 import React, { useState, useEffect } from 'react';
 import memsData from '../data/mems.json';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import VoteButton from './buttons/VoteButton';
+import FavoriteButton from './buttons/FavoriteButton';
+import SlideButtons from './buttons/SlideButtons';
 
 library.add(faThumbsUp, faThumbsDown);
 
@@ -19,7 +22,7 @@ function MemCard() {
       }));
     }
   });
-  
+
   const [bounceUp, setBounceUp] = useState(false);
   const [bounceDown, setBounceDown] = useState(false);
   const [favoriteClicked, setFavoriteClicked] = useState(false);
@@ -57,19 +60,18 @@ function MemCard() {
   const toggleFavorite = () => {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const currentMem = memData[currentIndex];
-  
+
     if (!favorites.some(mem => mem.id === currentMem.id)) {
-      const newFavorite = {...currentMem, favorite: 1};
-      favorites.push(newFavorite);
-  
+      favorites.push({ ...currentMem, favorite: 1 });
+
       localStorage.setItem('favorites', JSON.stringify(favorites));
-  
+
       const updatedMemData = memData.map(mem => 
         mem.id === currentMem.id ? {...mem, favorite: 1} : mem
       );
       setMemData(updatedMemData);
     }
-  
+
     setFavoriteClicked(true);
     setTimeout(() => setFavoriteClicked(false), 100);
   };
@@ -86,22 +88,13 @@ function MemCard() {
     <div className='mem__card'>
       <h1 className='mem__card-title'>{memData[currentIndex].title}</h1>
       <div className='mem__card-mem'>
-        <img className='mem__slide-left' src="./arrow_left.png" alt="arrow_left" onClick={goToPrevMem} />
+        <SlideButtons goToPrevMem={goToPrevMem} goToNextMem={goToNextMem} />
         <img src={memData[currentIndex].img} alt="Meme" />
-        <img className='mem__slide-right' src="./arrow_right.png" alt="arrow_right" onClick={goToNextMem} />
       </div>
-      <button className='favorite__btn' onClick={toggleFavorite}>
-        <img className={`favorite__btn-icon ${favoriteClicked ? 'scale-down' : ''}`} src="./favorite.png" alt="Favorite button" />
-      </button>
+      <FavoriteButton isClicked={favoriteClicked} onClick={toggleFavorite} />
       <div className='vote__btns'>
-        <button className='vote__btns-up vote__btn' onClick={triggerBounceUp}>
-          {memData[currentIndex].upvotes}
-          <FontAwesomeIcon icon="fa-solid fa-thumbs-up" className={`${bounceUp ? 'bounce' : ''} icon-margin`} />
-        </button>
-        <button className='vote__btns-down vote__btn' onClick={triggerBounceDown}>
-          {memData[currentIndex].downvotes}
-          <FontAwesomeIcon icon="fa-solid fa-thumbs-down" className={`${bounceDown ? 'bounce' : ''} icon-margin`} />
-        </button>
+        <VoteButton count={memData[currentIndex].upvotes} icon="fa-solid fa-thumbs-up" isBouncing={bounceUp} onClick={triggerBounceUp} voteType="up" />
+        <VoteButton count={memData[currentIndex].downvotes} icon="fa-solid fa-thumbs-down" isBouncing={bounceDown} onClick={triggerBounceDown} voteType="down" />
       </div>
     </div>
   );

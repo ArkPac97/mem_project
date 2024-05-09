@@ -1,11 +1,11 @@
 // src/views/Home.jsx
 import React from 'react';
-import MemeCard from '../components/MemCard';
+import MemCard from '../components/MemCard';
 
 export function Home() {
   return (
     <section>
-      <MemeCard title="Tytuł mema" />
+      <MemCard title="Tytuł mema" />
     </section>
   );
 }
