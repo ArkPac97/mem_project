@@ -1,7 +1,11 @@
+import React from 'react';
+import HotMemsBoard from '../components/HotMemsBoard';
+
 export function HotMems() {
     return (
       <section>
-        <h1>This is hotmems page</h1>
+         <HotMemsBoard />
       </section>
     );
   }
+

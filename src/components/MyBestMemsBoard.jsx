@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function MyBestBoard() {
+function MyBestMemsBoard() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
@@ -19,4 +19,4 @@ function MyBestBoard() {
   );
 }
 
-export default MyBestBoard;
+export default MyBestMemsBoard;

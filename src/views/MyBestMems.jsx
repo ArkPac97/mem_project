@@ -1,10 +1,10 @@
 import React from 'react';
-import MyBestBoard from '../components/MyBestBoard';
+import MyBestMemsBoard from '../components/MyBestMemsBoard';
 
 export function MyBestMems() {
     return (
       <section>
-         <MyBestBoard />
+         <MyBestMemsBoard />
       </section>
     );
   }
