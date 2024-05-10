@@ -276,7 +276,7 @@
 
 /* mem section styiling */
 
-/* boards styiling */
+/* boards styling */
 .mybest__board, .regular__board, .hot__board {
   width: 96%;
   display: flex;
@@ -294,5 +294,22 @@
   flex-basis: calc(50% - 20px);
   height: 24rem;
   margin-bottom: 3rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
-/* boards styiling */
+
+.regular__mem.clicked, .mybest__mem.clicked {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.regular__mem-img.clicked-img, .mybest__mem.clicked img  {
+  transform: scale(0.8);
+}
+/* boards styling */
