@@ -8,9 +8,10 @@ import { HotMems } from "./views/HotMems";
 import { RegularMems } from "./views/RegularMems";
 import { MyBestMems } from "./views/MyBestMems";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { MemsProvider } from './store/MemsContext';
 
 function AnimatedRoutes() {
-  const location = useLocation(); // Hook
+  const location = useLocation();
 
   return (
     <TransitionGroup component={null}>
@@ -31,7 +32,9 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <NavBar />
-        <AnimatedRoutes />
+        <MemsProvider>
+          <AnimatedRoutes />
+        </MemsProvider>
       </div>
     </BrowserRouter>
   );

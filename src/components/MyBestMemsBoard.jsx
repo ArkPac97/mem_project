@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
+import MemsContext from '../store/MemsContext';
 
 function MyBestMemsBoard() {
-  const [favorites, setFavorites] = useState([]);
+  const { mems } = useContext(MemsContext);
   const [clickedMem, setClickedMem] = useState(null);
 
-  useEffect(() => {
-      const loadedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-      setFavorites(loadedFavorites);
-  }, []);
+  const favorites = mems.filter(mem => mem.favorite);
 
   const handleClick = (mem) => {
-      if (clickedMem === mem) {
-          setClickedMem(null);
-      } else {
-          setClickedMem(mem);
-      }
+      setClickedMem(clickedMem === mem ? null : mem);
   };
 
   return (
@@ -25,7 +19,7 @@ function MyBestMemsBoard() {
                   className={`mybest__mem ${clickedMem === mem ? 'clicked' : ''}`}
                   onClick={() => handleClick(mem)}
               >
-                  <img src={mem.img} alt={mem.title} />
+                  <img src={mem.img} alt={mem.title} className={`mybest__mem-img ${clickedMem === mem ? 'clicked-img' : ''}`} />
               </div>
           ))}
       </section>

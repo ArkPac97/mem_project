@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import memsData from '../data/mems.json';
+import React, { useContext, useState } from 'react';
+import MemsContext from '../store/MemsContext';
 
 function HotMemsBoard() {
-  const [regularMems, setRegularMems] = useState([]);
+  const { mems } = useContext(MemsContext);
+  const [clickedMem, setClickedMem] = useState(null);
 
-  useEffect(() => {
-      const filteredMems = memsData.filter(mem => {
-          const balance = mem.upvotes - mem.downvotes;
-          return balance > 5;
-      });
-      setRegularMems(filteredMems);
-  }, []);
+  const handleClick = (mem) => {
+    setClickedMem(clickedMem === mem ? null : mem);
+  };
 
   return (
-      <section className="hot__board">
-          {regularMems.map(mem => (
-              <div key={mem.img} className="hot__mem">
-                  <img src={mem.img} alt={mem.title} />
-              </div>
-          ))}
-      </section>
+    <section className="hot__board">
+      {mems.filter(mem => mem.upvotes - mem.downvotes > 5).map(mem => (
+        <div key={mem.id}
+             onClick={() => handleClick(mem)}
+             className={`hot__mem ${clickedMem === mem ? 'clicked' : ''}`}>
+          <img src={mem.img} alt={mem.title} className={`hot__mem-img ${clickedMem === mem ? 'clicked-img' : ''}`} />
+        </div>
+      ))}
+    </section>
   );
 }
 

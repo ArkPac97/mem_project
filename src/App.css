@@ -298,7 +298,7 @@
   transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
-.regular__mem.clicked, .mybest__mem.clicked {
+.regular__mem.clicked, .hot__mem.clicked, .mybest__mem.clicked {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -309,7 +309,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.regular__mem-img.clicked-img, .mybest__mem.clicked img  {
+.regular__mem-img.clicked-img, .hot__mem-img.clicked-img, .mybest__mem.clicked img  {
   transform: scale(0.8);
 }
 /* boards styling */
