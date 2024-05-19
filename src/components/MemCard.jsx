@@ -10,11 +10,11 @@ import MemsContext from '../store/MemsContext';
 library.add(faThumbsUp, faThumbsDown);
 
 function MemCard() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const { mems, vote, toggleFavorite } = useContext(MemsContext);
-  const [bounceUp, setBounceUp] = useState(false);
-  const [bounceDown, setBounceDown] = useState(false);
-  const [favoriteClicked, setFavoriteClicked] = useState(false);
+  const [ currentIndex, setCurrentIndex ] = useState(0);
+  const [ mems, vote, toggleFavorite ] = useContext(MemsContext);
+  const [ bounceUp, setBounceUp ] = useState(false);
+  const [ bounceDown, setBounceDown ] = useState(false);
+  const [ favoriteClicked, setFavoriteClicked ] = useState(false);
 
   const triggerVote = (type) => {
     vote(mems[currentIndex].id, type);
@@ -46,7 +46,7 @@ function MemCard() {
       <h1 className='mem__card-title'>{mems[currentIndex].title}</h1>
       <div className='mem__card-mem'>
         <SlideButtons goToPrevMem={goToPrevMem} goToNextMem={goToNextMem} />
-        <img src={mems[currentIndex].img} alt="Meme" />
+        <img src={mems[currentIndex].img} alt="Mem" />
       </div>
       <FavoriteButton isClicked={favoriteClicked} onClick={toggleFav} />
       <div className='vote__btns'>

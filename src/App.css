@@ -86,16 +86,16 @@
   width: 9rem;
   height: 3rem;
   border: none;
+  border-radius: 1rem;
   text-transform: uppercase;
   letter-spacing: 4px;
   cursor: pointer;
-  clip-path: polygon(0% 0%, 5% 100%, 87% 88%, 99% 90%, 94% 4%);
   transition: all .3s;
   transform: scale(0.9);
 }
 
 .nav__bar-navigation_btn:hover {
-  clip-path: polygon(12% 2%, 1% 87%, 30% 80%, 88% 90%, 94% 4%);
+  box-shadow: 0 0 0 2px rgb(0, 0, 0), rgb(255, 255, 255) 11px 10px 0px -3px, 11px 10px 0 0 rgb(38, 255, 0);
 }
 
 .home__btn {
@@ -208,7 +208,7 @@
     border: none;
     position: absolute;
     right: 12%;
-    top: 14%;
+    top: 17%;
     cursor: pointer;
 }
 
@@ -224,23 +224,23 @@
 
 .vote__btns {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 60%;
 }
 
 .vote__btn {
-  width: -webkit-fill-available;
+  width: 40%;
   height: 4rem;
   border: none;
+  border-radius: 1rem;
   cursor: pointer;
   font-size: 1.5rem;
-  clip-path: polygon(0% 0%, 5% 100%, 87% 88%, 99% 90%, 94% 4%);
   transition: all .3s;
   overflow: visible;
 }
 
 .vote__btn:hover {
-  clip-path: polygon(7.9% 8.36%, 1% 87%, 24.75% 82.25%, 88% 90%, 94% 4%);
+  box-shadow: 0 0 0 2px rgb(0, 0, 0), rgb(255, 255, 255) 11px 10px 0px -3px, 11px 10px 0 0 rgb(38, 255, 0);
 }
 
 
