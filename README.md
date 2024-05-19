@@ -1,13 +1,53 @@
+# mem_project
 
+## Overview
+**mem_project** is a meme rating application built with React. It allows users to view, rate, and manage memes through a user-friendly interface.
 
-## Available Scripts
+## Getting Started
+To run the project locally, follow these steps:
 
-In the project directory, you can run:
+1. Clone the repository.
+    ```bash
+    git clone https://github.com/ArkPac97/mem_project.git
 
-### `npm start`
+2. Install the dependencies:
+   ```bash
+   npm install
+3. Start the development server:
+    ```bash
+    npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Structure
+The project is organized into the following folders and files:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* node_modules: contains all npm dependencies.
+
+* public: includes icons and the mems folder with mems images.
+
+* src: contains the source code.
+
+### Components:
+
+* buttons: contains button-specific code.
+* main components:
+
+    * NavBar
+    * MemCard
+    * HotMemsBoard
+    * MyBestBoard
+    * RegularBoard
+
+* data: contains mems.json with mems data.
+* store: acts as a reducer using createContext (MemsContext.jsx).
+* views: contains the pages routed from the main page.
+
+* root Files:
+
+    * App.css
+    * App.js
+    * App.test.js
+    * index.css
+    * index.js
+    * reportWebVitals.js
+
+Enjoy rating memes!

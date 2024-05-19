@@ -3,7 +3,7 @@ import memsData from '../data/mems.json';
 
 const MemsContext = createContext();
 
-export const MemsProvider = ({ elements }) => {
+export const MemsProvider = ({ children }) => {
   const [mems, setMems] = useState(memsData.map((mem, index) => ({
     ...mem,
     id: mem.id || `mem-${index}`,
@@ -38,7 +38,7 @@ export const MemsProvider = ({ elements }) => {
 
   return (
     <MemsContext.Provider value={{ mems, vote, toggleFavorite }}>
-      {elements}
+      {children}
     </MemsContext.Provider>
   );
 };
