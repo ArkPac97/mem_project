@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import MemsContext from '../store/MemsContext';
+import SingleMeme from './SingleMeme';
 
 function RegularMemsBoard() {
   const { mems } = useContext(MemsContext);
@@ -12,11 +13,13 @@ function RegularMemsBoard() {
   return (
     <section className="regular__board">
       {mems.filter(mem => mem.upvotes - mem.downvotes <= 5).map(mem => (
-        <div key={mem.id}
-             onClick={() => handleClick(mem)}
-             className={`regular__mem ${clickedMem === mem ? 'clicked' : ''}`}>
-          <img src={mem.img} alt={mem.title} className={`regular__mem-img ${clickedMem === mem ? 'clicked-img' : ''}`} />
-        </div>
+        <SingleMeme 
+          key={mem.id}
+          mem={mem}
+          clickedMem={clickedMem}
+          handleClick={handleClick}
+          boardClass="regular"
+        />
       ))}
     </section>
   );

@@ -48,7 +48,8 @@ function MemCard() {
         <SlideButtons goToPrevMem={goToPrevMem} goToNextMem={goToNextMem} />
         <img src={mems[currentIndex].img} alt="Meme" />
       </div>
-      <FavoriteButton isClicked={favoriteClicked} onClick={toggleFav} />
+      {/* <FavoriteButton isClicked={favoriteClicked} onClick={toggleFav} /> */}
+      <FavoriteButton favorite={mems[currentIndex].favorite} isClicked={favoriteClicked} onClick={toggleFav} />
       <div className='vote__btns'>
         <VoteButton count={mems[currentIndex].upvotes} icon="fa-solid fa-thumbs-up" isBouncing={bounceUp} onClick={() => triggerVote('up')} voteType="up" />
         <VoteButton count={mems[currentIndex].downvotes} icon="fa-solid fa-thumbs-down" isBouncing={bounceDown} onClick={() => triggerVote('down')} voteType="down" />

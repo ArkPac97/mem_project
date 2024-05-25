@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import MemsContext from '../store/MemsContext';
+import SingleMeme from './SingleMeme';
 
 function MyBestMemsBoard() {
   const { mems } = useContext(MemsContext);
@@ -14,13 +15,13 @@ function MyBestMemsBoard() {
   return (
       <section className="mybest__board">
           {favorites.map(mem => (
-              <div 
-                  key={mem.id} 
-                  className={`mybest__mem ${clickedMem === mem ? 'clicked' : ''}`}
-                  onClick={() => handleClick(mem)}
-              >
-                  <img src={mem.img} alt={mem.title} className={`mybest__mem-img ${clickedMem === mem ? 'clicked-img' : ''}`} />
-              </div>
+            <SingleMeme 
+              key={mem.id}
+              mem={mem}
+              clickedMem={clickedMem}
+              handleClick={handleClick}
+              boardClass="mybest"
+            />
           ))}
       </section>
   );
