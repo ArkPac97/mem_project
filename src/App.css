@@ -65,6 +65,14 @@
   align-items: center;
 }
 
+.nav__bar-home-link {
+  color: black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-decoration: none;
+}
+
 .nav__bar-img {
   width: 15%;
 }
@@ -83,6 +91,10 @@
 }
 
 .nav__bar-navigation_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
   width: 9rem;
   height: 3rem;
   border: none;
